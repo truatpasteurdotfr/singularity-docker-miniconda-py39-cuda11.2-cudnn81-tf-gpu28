@@ -6,9 +6,10 @@ RUN	conda update --yes -n base -c defaults conda && \
 RUN eval "$(/opt/conda/bin/conda shell.bash hook)" && \
 	conda create --name tf    && \
 	conda activate tf         && \
-	conda install python==3.9 cudatoolkit=11.2 cudnn=8.1 \
+	conda install -c conda-forge  python==3.9 cudatoolkit=11.2 cudnn=8.1 \
 		ipykernel jupyterlab py3dmol matplotlib && \
-	conda install -c conda-forge tensorflow-gpu==2.8
+	python3 -m pip install --upgrade pip && \
+	python3 -m pip install tensorflow==2.8
 	
 
 
